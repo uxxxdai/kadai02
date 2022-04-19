@@ -13,9 +13,9 @@ var nowhp_b = maxhp_b;
 var damage = 0;
 var stage = 0
 const charaname_a = ["ピカチュウ","ロコン(アローラ）","イーブイ","ポニータ（ガラル）","コリンク"]
-const charaname_b = ["ピカチュウ","ロコン（アローラ）","イーブイ","ポニータ（ガラル）","コリンク","ザジアン","ザマゼンタ","ミュー","ソルガレオ"]
+const charaname_b = ["ピカチュウ","ロコン（アローラ）","イーブイ","ポニータ（ガラル）","コリンク","ザジアン","ザマゼンタ","ミュウ","ソルガレオ"]
 const chara_imgs = ["Pikachu.png","alora-rokon.png","i-vy.png","garaluponi-ta.png","korinku.png"]
-const charaname_last = ["ザジアン","ザマゼンタ","ミュー","ソルガレオ"]
+const charaname_last = ["ザジアン","ザマゼンタ","ミュウ","ソルガレオ"]
 const chara_imgs_last = ["zajian.png","zamazenta.png","myu.png","solgareo.png"]
 
 // 同じあいてともう一回ボタン
@@ -40,7 +40,8 @@ $(".btn.again").on("click", function again() {
 })
 
 // さいしょにもどるボタン
-$(".btn.reset").on("click", function reload(){location.reload()});
+$(".btn.reset").on("click", function reload(){
+    location.reload()});
 // $(".btn.reset").on("click", function reset() {
 //     stage = 0;
 //     chara_a = 0
@@ -220,7 +221,7 @@ function monsterballback_b(){
 //次の相手に進むfunction
 //   $(".btn.next").on("click", function next() {
 function next() {
-// stage = 4; //検証用
+stage = 4; //検証用
 console.log(stage);
   if(stage == 0){
       alert("あいてをたおしたら次に進めるよ");
@@ -305,6 +306,7 @@ console.log(stage);
 
 // 自分のキャラを選択
 $(".btn2").on("click", function change_restart() {
+    location.reload();
     chara_a = $(".pulldown").val();
     var randoms = [];
     for(i = 1; i <= 3 ;i++){
@@ -336,7 +338,7 @@ $(".btn2").on("click", function change_restart() {
     $(".hako.chara_a img").attr("src","images/"+ chara_imgs[chara_a]);
     $(".hako.chara_a2 img").attr("src","images/white box.jpeg");
     $(".hako.chara_a3 img").attr("src","images/white box.jpeg");
-    $(".hako.chara_a_last img").attr("images/white box.jpeg");
+    $(".hako.chara_a_last img").attr("src","images/white box.jpeg");
     $(".hako.chara_b img").attr("src","images/"+ chara_imgs[chara_b]);
     $(".hako.chara_b img").css({"background":"white","opacity":"1"});
     $(".hako.chara_b2 img").css({"background":"white","opacity":"1"});
@@ -350,6 +352,17 @@ $(".btn2").on("click", function change_restart() {
     $(".hp_now.chara_b").text(nowhp_b + "/" + maxhp_b);
     $(".hp_now.chara_b").width(350 / maxhp_b * nowhp_b + "px");
     $(".message_contents").html("グー、チョキ、パーのどれかを選んでね。勝った方がこうげき！<br>（※こうげきりょくはグー：20、チョキ：30、パー：40で、<br>あたえるダメージはヒットのつよさによってかわるよ！）");
+    $(".message_contents").css({"color":"black","font-weight":"bold","font-size":"16px"})
+    function hanafubukistop(){
+        particlesJS("particles-js",{
+            "particles":{
+                "number":{
+                    "value":0,//この数値を変更すると紙吹雪の数が増減できる
+                    "density":{
+                        "enable":false,
+                        "value_area":400
+                    }
+                },}})}
 })
 
 // ゲームクリアはなふぶき
