@@ -17,6 +17,7 @@ const charaname_b = ["ピカチュウ","ロコン（アローラ）","イーブ�
 const chara_imgs = ["Pikachu.png","alora-rokon.png","i-vy.png","garaluponi-ta.png","korinku.png"]
 const charaname_last = ["ザジアン","ザマゼンタ","ミュウ","ソルガレオ"]
 const chara_imgs_last = ["zajian.png","zamazenta.png","myu.png","solgareo.png"]
+let hana = 200
 
 // 同じあいてともう一回ボタン
 $(".btn.again").on("click", function again() {
@@ -299,13 +300,14 @@ console.log(stage);
   else if(stage == 4){
     $(".message_contents").html("ゲームクリア おめでとう！！！<br><br>ほかのでんせつのポケモンとあいたかったらまたプレイしてね！");
     $(".message_contents").css({"font-size":"20px","color":"red","font-weight":"bold"});
-    hanafubuki();
+    hanafubuki(200);
     }
   else{alert("バグ");}
 }
 
 // 自分のキャラを選択
 $(".btn2").on("click", function change_restart() {
+    hanafubuki(0);
     chara_a = $(".pulldown").val();
     var randoms = [];
     for(i = 1; i <= 3 ;i++){
@@ -352,24 +354,24 @@ $(".btn2").on("click", function change_restart() {
     $(".hp_now.chara_b").width(350 / maxhp_b * nowhp_b + "px");
     $(".message_contents").html("グー、チョキ、パーのどれかを選んでね。勝った方がこうげき！<br>（※こうげきりょくはグー：20、チョキ：30、パー：40で、<br>あたえるダメージはヒットのつよさによってかわるよ！）");
     $(".message_contents").css({"color":"black","font-weight":"bold","font-size":"16px"})
-    function hanafubukistop(){
-        particlesJS("particles-js",{
-            "particles":{
-                "number":{
-                    "value":0,//この数値を変更すると紙吹雪の数が増減できる
-                    "density":{
-                        "enable":false,
-                        "value_area":400
-                    }
-                },}})}
+    // function hanafubukistop(){
+    //     particlesJS("particles-js",{
+    //         "particles":{
+    //             "number":{
+    //                 "value":0,//この数値を変更すると紙吹雪の数が増減できる
+    //                 "density":{
+    //                     "enable":false,
+    //                     "value_area":400
+    //                 }
+    //             },}})}
 })
 
 // ゲームクリアはなふぶき
-function hanafubuki(){
+function hanafubuki(hana){
 particlesJS("particles-js",{
 	"particles":{
 		"number":{
-			"value":200,//この数値を変更すると紙吹雪の数が増減できる
+			"value":hana,//この数値を変更すると紙吹雪の数が増減できる
 			"density":{
 				"enable":false,
 				"value_area":400
