@@ -221,7 +221,7 @@ function monsterballback_b(){
 //次の相手に進むfunction
 //   $(".btn.next").on("click", function next() {
 function next() {
-stage = 4; //検証用
+// stage = 4; //検証用
 console.log(stage);
   if(stage == 0){
       alert("あいてをたおしたら次に進めるよ");
