@@ -306,7 +306,6 @@ console.log(stage);
 
 // 自分のキャラを選択
 $(".btn2").on("click", function change_restart() {
-    location.reload();
     chara_a = $(".pulldown").val();
     var randoms = [];
     for(i = 1; i <= 3 ;i++){
